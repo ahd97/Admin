@@ -1,0 +1,25 @@
+<input type="text" (keyup)="onKeyup(input1.value)" #input1 ><br>
+<input type="text" name="date" [(ngModel)]="sales_date">
+<button (click)="onAdd()">add</button>
+<table>
+    <thead>
+        <th>Sales_order_id</th>
+        <th>User_id</th>
+        <th>Customer_name</th>
+        <th>Order_address</th>
+        <th>City_id</th>
+        <th>Order_status</th>
+        
+      </thead>
+  <tr *ngFor="let item of sales_order">
+    <td>{{item.Sales_order_id}}</td>
+    <td>{{item.User_id}}</td>
+    <td>{{item.Customer_name}}</td>
+    <td>{{item.Order_address}}</td>
+    <td>{{item.City_id}}</td>
+    <td>{{item.Order_status}}</td>
+    <td><button (click)="onDelete(item)" >delete</button></td>
+    <td><button>update</button></td>
+  </tr>
+
+</table>

@@ -1,0 +1,23 @@
+<input type="text" (keyup)="onKeyup(input1.value)" #input1 >
+<input type="text" name="date" [(ngModel)]="purchase_date">
+<input type="number" name="amount" [(ngModel)]="purchase_amt">
+<button (click)="onAdd()">add</button>
+<table>
+    <thead>
+        <th>Purchase id</th>
+        <th>Purchase date</th>
+        <th>Purchase order id</th>
+        <th>Purchase Payment id</th>
+        <th>Purchase Payment id</th>
+      </thead>
+  <tr *ngFor="let item of purchase">
+    <td>{{item.Purchase_id}}</td>
+    <td>{{item.Purchase_date}}</td>
+    <td>{{item.Purchase_order_id}}</td>
+    <td>{{item.Purchase_payment_id}}</td>
+    <td>{{item.Amount}}</td>
+    <td><button (click)="onDelete(item)" >delete</button></td>
+    <td><button>update</button></td>
+  </tr>
+
+</table>
