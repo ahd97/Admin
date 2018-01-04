@@ -1,0 +1,17 @@
+<input type="text" (keyup)="onKeyup(input1.value)" #input1 >
+
+
+<button (click)="onAdd()">add</button>
+<table>
+    <thead>
+        <th>Design id</th>
+        <th>Design name</th>     
+      </thead>
+  <tr *ngFor="let item of design">
+    <td>{{item.Design_id}}</td>
+    <td>{{item.Design_name}}</td>
+    <td><button (click)="onDelete(item)" >delete</button></td>
+    <td><button>update</button></td>
+  </tr>
+
+</table>
