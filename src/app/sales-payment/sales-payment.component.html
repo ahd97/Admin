@@ -1,0 +1,23 @@
+<input type="text" (keyup)="onKeyup(input1.value)" #input1 >
+
+<button (click)="onAdd()">add</button>
+<table>
+    <thead>
+        <th>Sales Payment id</th>
+        <th>Sales id</th>
+        <th>Sales payment date</th>
+        <th>User id</th>
+        <th>Payment Type</th>
+        <th></th>
+      </thead>
+  <tr *ngFor="let item of sales_payment">
+    <td>{{item.Sales_payment_id}}</td>
+    <td>{{item.Sales_id}}</td>
+    <td>{{item.Sales_payment_date}}</td>
+    <td>{{item.User_id}}</td>
+    <td>{{item.Payment_type}}</td>
+    <td><button (click)="onDelete(item)" >delete</button></td>
+    <td><button>update</button></td>
+  </tr>
+
+</table>

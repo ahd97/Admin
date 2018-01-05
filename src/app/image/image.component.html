@@ -1,0 +1,19 @@
+<input type="text" (keyup)="onKeyup(input1.value)" #input1 >
+
+
+<button (click)="onAdd()">add</button>
+<table>
+    <thead>
+        <th>Image id</th>
+        <th>Path</th>
+        <th>Product id</th>     
+      </thead>
+  <tr *ngFor="let item of image">
+    <td>{{item.Image_id}}</td>
+    <td>{{item.Path}}</td>
+    <td>{{item.Product_id}}</td>
+    <td><button (click)="onDelete(item)" >delete</button></td>
+    <td><button>update</button></td>
+  </tr>
+
+</table>

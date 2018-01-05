@@ -19,8 +19,24 @@ import { DesignComponent } from './design/design.component';
 import { DesignDataService } from './Providers/design-data.service';
 import { ColorComponent } from './color/color.component';
 import { ColorDataService } from './Providers/color-data.service';
-
-
+import { ImageComponent } from './image/image.component';
+import { ImageDataService } from './Providers/image-data.service';
+import { RoleComponent } from './role/role.component';
+import { RoleDataService } from './Providers/role-data.service';
+import { SupplierComponent } from './supplier/supplier.component';
+import { SupplierDataService } from './Providers/supplier-data.service';
+import { SalesDetailComponent } from './sales-detail/sales-detail.component';
+import { SalesDetailDataService } from './Providers/sales-detail-data.service';
+import { SalesOrderDetailComponent } from './sales-order-detail/sales-order-detail.component';
+import { SalesOrderDetailDataService } from './Providers/sales-order-detail-data.service';
+import { SalesPaymentComponent } from './sales-payment/sales-payment.component';
+import { SalesPaymentDataService } from './Providers/sales-payment-data.service';
+import { SalesReturnComponent } from './sales-return/sales-return.component';
+import { SalesReturnDataService } from './Providers/sales-return-data.service';
+import { SalesReturnDetailComponent } from './sales-return-detail/sales-return-detail.component';
+import { SalesReturnDetailDataService } from './Providers/sales-return-detail-data.service';
+import { CityComponent } from './city/city.component';
+import { CityDataService } from './Providers/city-data.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +48,16 @@ import { ColorDataService } from './Providers/color-data.service';
     ProductComponent,
     ProductCategoryComponent,
     DesignComponent,
-    ColorComponent
+    ColorComponent,
+    ImageComponent,
+    RoleComponent,
+    SupplierComponent,
+    SalesDetailComponent,
+    SalesOrderDetailComponent,
+    SalesPaymentComponent,
+    SalesReturnComponent,
+    SalesReturnDetailComponent,
+    CityComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +72,16 @@ import { ColorDataService } from './Providers/color-data.service';
     ProductDataService,
     ProductCategoryDataService,
     DesignDataService,
-    ColorDataService
+    ColorDataService,
+    ImageDataService,
+    RoleDataService,
+    SupplierDataService,
+    SalesDetailDataService,
+    SalesOrderDetailDataService,
+    SalesPaymentDataService,
+    SalesReturnDataService,
+    SalesReturnDetailDataService,
+    CityDataService
   ],
   bootstrap: [AppComponent]
 })
