@@ -1,0 +1,20 @@
+<input type="text" (keyup)="onKeyup(input1.value)" #input1 >
+<table>
+    <thead>
+        <th>Purchase order id</th>
+        <th>Product name</th>
+        <th>Received date</th>
+        <th>Qty ordered</th>
+        <th>Qty received</th>
+      </thead>
+  <tr *ngFor="let item of purchase_order_detail">
+    <td>{{item.Purchase_order_id}}</td>
+    <td>{{item.Product_name}}</td>
+    <td>{{item.Received_date}}</td>
+    <td>{{item.Qty_ordered}}</td>
+    <td>{{item.Qty_receiced}}</td>
+    <td><button (click)="onDelete(item)" >delete</button></td>
+    <td><button>update</button></td>
+  </tr>
+
+</table>

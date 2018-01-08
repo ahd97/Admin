@@ -36,18 +36,18 @@ path:string='';
       this.image = this.image1;
     }
   }
-  onAdd() {
-    this._data.addImage(new Image(0, this.path,0)).subscribe(
+  // onAdd() {
+  //   this._data.addImage(new Image(0, this.path,0)).subscribe(
 
-      () => {
-      }, function (err) {
+  //     () => {
+  //     }, function (err) {
 
-      },
-      function () {
+  //     },
+  //     function () {
 
-      }
-    );
-  }
+  //     }
+  //   );
+  // }
   onDelete(item) {
     this._data.deleteImage(item.Image_id).subscribe(() => {
 

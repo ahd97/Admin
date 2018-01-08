@@ -10,8 +10,7 @@ import { ProductDataService } from '../Providers/product-data.service';
 export class ProductComponent implements OnInit {
   product: Product[] = [];
   product1: Product[] = [];
-  product_name: string = '';
-  description: string = '';
+
 
   constructor(public _data: ProductDataService) { }
 
@@ -31,23 +30,11 @@ export class ProductComponent implements OnInit {
   }
   onKeyup(item) {
     if (item != '') {
-      this.product = this.product.filter((x) => x.Product_name.startsWith(item));
+      this.product = this.product1.filter((x) => x.Product_name.indexOf(item)!==-1);
     }
     else {
       this.product = this.product1;
     }
-  }
-  onAdd() {
-    this._data.addProduct(new Product(0, this.product_name, this.description, 0, 0, 0, 0, 0)).subscribe(
-
-      () => {
-      }, function (err) {
-
-      },
-      function () {
-
-      }
-    );
   }
   onDelete(item) {
     this._data.deleteProduct(item.Product_id).subscribe(() => {

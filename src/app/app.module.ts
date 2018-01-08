@@ -37,7 +37,23 @@ import { SalesReturnDetailComponent } from './sales-return-detail/sales-return-d
 import { SalesReturnDetailDataService } from './Providers/sales-return-detail-data.service';
 import { CityComponent } from './city/city.component';
 import { CityDataService } from './Providers/city-data.service';
+import { PurchaseOrderDetailComponent } from './purchase-order-detail/purchase-order-detail.component';
+import { PurchaseOrderDetailDataService } from './Providers_exclusive/purchase-order-detail-data.service';
+import { PurchaseDetailComponent } from './purchase-detail/purchase-detail.component';
+import { PurchaseDetailDataService } from './Providers_exclusive/purchase-detail-data.service';
+import { PurchasePaymentComponent } from './purchase-payment/purchase-payment.component';
+import { PurchasePaymentDataService } from './Providers_exclusive/purchase-payment-data.service';
+import { PurchaseReturnComponent } from './purchase-return/purchase-return.component';
+import { PurchaseReturnDataService } from './Providers_exclusive/purchase-return-data.service';
+import { PurchaseReturnDetailComponent } from './purchase-return-detail/purchase-return-detail.component';
+import { PurchaseReturnDetailDataService } from './Providers_exclusive/purchase-return-detail-data.service';
+import { UserMasterComponent } from './user-master/user-master.component';
+import { UserMasterDataService } from './Providers_exclusive/user-master-data.service';
 
+import { routing } from './app.routing';
+import { SidebarmenuComponent } from './sidebarmenu.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { AddCityComponent } from './add-city/add-city.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,12 +73,22 @@ import { CityDataService } from './Providers/city-data.service';
     SalesPaymentComponent,
     SalesReturnComponent,
     SalesReturnDetailComponent,
-    CityComponent
+    CityComponent,
+    PurchaseOrderDetailComponent,
+    PurchaseDetailComponent,
+    PurchasePaymentComponent,
+    PurchaseReturnComponent,
+    PurchaseReturnDetailComponent,
+    UserMasterComponent,
+    SidebarmenuComponent,
+    AddProductComponent,
+    AddCityComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    routing
   ],
   providers: [
     SalesDataService,
@@ -81,7 +107,13 @@ import { CityDataService } from './Providers/city-data.service';
     SalesPaymentDataService,
     SalesReturnDataService,
     SalesReturnDetailDataService,
-    CityDataService
+    CityDataService,
+    PurchaseOrderDetailDataService,
+    PurchaseDetailDataService,
+    PurchasePaymentDataService,
+    PurchaseReturnDataService,
+    PurchaseReturnDetailDataService,
+    UserMasterDataService
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,6 @@ export class SalesOrder {
         public Customer_name:string,
         public Order_date:string,
         public Order_address:string,
-        public City_id:number,
+        public City_name:number,
         public Order_status:string){}
 }

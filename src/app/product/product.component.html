@@ -1,7 +1,7 @@
 <input type="text" (keyup)="onKeyup(input1.value)" #input1 >
 
 
-<button (click)="onAdd()">add</button>
+<button><a routerLink="/add_product">Add Product</a></button>
 <table>
     <thead>
         <th>Product id</th>
@@ -9,9 +9,9 @@
         <th>Description</th>
         <th>QOH</th>        
         <th>Price</th>
-        <th>Product category id</th>
-        <th>Color id</th>   
-        <th>Design id</th>     
+        <th>Category_name</th>
+        <th>Color_name</th>   
+        <th>Design_name</th>     
       </thead>
   <tr *ngFor="let item of product">
     <td>{{item.Product_id}}</td>
@@ -19,9 +19,9 @@
     <td>{{item.Description}}</td>
     <td>{{item.QOH}}</td>
     <td>{{item.Price}}</td>
-    <td>{{item.Product_cat_id}}</td>
-    <td>{{item.Color_id}}</td>
-    <td>{{item.Design_id}}</td>
+    <td>{{item.Category_name}}</td>
+    <td>{{item.Color_name}}</td>
+    <td>{{item.Design_name}}</td>
     <td><button (click)="onDelete(item)" >delete</button></td>
     <td><button>update</button></td>
   </tr>

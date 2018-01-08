@@ -36,18 +36,18 @@ purchase_order1:PurchaseOrderClass[]=[];
       this.purchase_order=this.purchase_order1;
     }
   }
-  onAdd(){
-    this._data.addPurchase_order(new PurchaseOrderClass(0,0,0,'pending')).subscribe(
+  // onAdd(){
+  //   this._data.addPurchase_order(new PurchaseOrderClass(0,0,0,'pending')).subscribe(
       
-      ()=>{
-      },function(err){
+  //     ()=>{
+  //     },function(err){
     
-      },
-      function(){
+  //     },
+  //     function(){
         
-      }
-    );
-    }
+  //     }
+  //   );
+  //   }
     onDelete(item){
       this._data.deletePurchase_order(item.Purchase_order_id).subscribe(()=>{
   

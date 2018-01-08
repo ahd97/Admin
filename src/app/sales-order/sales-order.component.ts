@@ -42,18 +42,18 @@ order_date:string='';
       this.sales_order=this.sales_order1;
     }
   }
-  onAdd(){
-    this._data.addSales_order(new SalesOrder(0,0,this.customer_name,this.order_date,this.order_address,0,'Pending')).subscribe(
+  // onAdd(){
+  //   this._data.addSales_order(new SalesOrder(0,0,this.customer_name,this.order_date,this.order_address,0,'Pending')).subscribe(
       
-      ()=>{
-      },function(err){
+  //     ()=>{
+  //     },function(err){
     
-      },
-      function(){
+  //     },
+  //     function(){
         
-      }
-    );
-    }
+  //     }
+  //   );
+  //   }
     onDeleteSales_order(item){
       this._data.deleteSales_order(item.Sales_order_id).subscribe(()=>{
   

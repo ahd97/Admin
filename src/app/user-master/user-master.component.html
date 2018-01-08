@@ -1,0 +1,42 @@
+<ul>
+  <!-- <li><input type="text" [(ngModel)]="user_name">uame</li>
+  <li><input type="text" [(ngModel)]="password">uame</li> -->
+  <li><input type="text" (keyup)="onKeyup(input1.value)" #input1 ></li>
+  <button (click)="onAdd()">add</button>
+</ul>
+
+
+
+<table>
+    <thead>
+        <th>User_id</th>
+        <th>User_name</th>
+        <th>Password</th>
+        <th>Security_q</th>
+        <th>Security_a</th>
+        <th>Ph_no</th>
+        <th>E_mail</th>
+        <th>First_name</th>
+        <th>Last_name</th>
+        <th>Address</th>
+        <th>DOB</th>
+        <th>Role</th>
+      </thead>
+  <tr *ngFor="let item of users">
+    <td>{{item.User_id}}</td>
+    <td>{{item.User_name}}</td>
+    <td>{{item.Password}}</td>
+    <td>{{item.Security_q}}</td>
+    <td>{{item.Security_a}}</td>
+    <td>{{item.Ph_no}}</td>
+    <td>{{item.E_mail}}</td>
+    <td>{{item.First_name}}</td>
+    <td>{{item.Last_name}}</td>
+    <td>{{item.Address}}</td>
+    <td>{{item.Role_name}}</td>
+    <td><button (click)="onDelete(item)" >delete</button></td>
+    <td><button>update</button></td>
+  </tr>
+
+</table>
+

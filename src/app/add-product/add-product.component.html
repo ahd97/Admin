@@ -1,0 +1,73 @@
+<form>
+  <table>
+    <tr>
+      <td>
+  <label>Product Name</label>
+  </td>
+  <td>
+  <input type="text" name="product_name" id="product_name" [(ngModel)]="product_name">
+  </td>
+  </tr>
+  <tr>
+    <td>
+  <label>Description</label>
+  </td>
+  <td>
+  <input type="text" name="description" id="description" [(ngModel)]="description">
+  </td>
+  </tr>
+  <tr>
+    <td>
+  <label>QOH</label>
+  </td>
+  <td>
+  <input type="number" name="qoh" id="qoh" [(ngModel)]="qoh">
+  </td>
+</tr>
+<tr>
+  <td>
+  <label>Price</label>
+  </td>
+  <td>
+  <input type="number" name="price" id="price" [(ngModel)]="price">
+  </td>
+</tr>
+<tr>
+  <td>
+  <label>Category id</label>
+  </td>
+  <td>
+  <input type="number" name="category_id" id="category_id" [(ngModel)]="category_id">
+  </td>
+</tr>
+<tr>
+  <td>
+  <label>Color id</label>
+  </td>
+  <td>
+  <input type="number" name="color_id" id="color_id" [(ngModel)]="color_id">
+  </td>
+</tr>
+<tr>
+  <td>
+  <label>Design id</label>
+  </td>
+  <td>
+  <input type="number" name="design_id" id="design_id" [(ngModel)]="design_id">
+  </td>
+</tr>
+<tr>
+    <td>
+    <label>Company id</label>
+    </td>
+    <td>
+    <input type="number" name="company_id" id="company_id" [(ngModel)]="company_id">
+    </td>
+  </tr>
+<tr>
+  <td>
+  <button (click)="onAdd()">add</button>
+  </td>
+</tr> 
+</table>
+  </form>
