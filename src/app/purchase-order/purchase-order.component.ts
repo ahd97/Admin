@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseOrderDataService } from '../Providers/purchase-order-data.service';
 import { PurchaseOrderClass } from '../Model/purchase-order-class';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-purchase-order',
@@ -11,7 +13,7 @@ export class PurchaseOrderComponent implements OnInit {
 purchase_order:PurchaseOrderClass[]=[];
 purchase_order1:PurchaseOrderClass[]=[];
 
-  constructor(public _data:PurchaseOrderDataService) { }
+  constructor(public _data:PurchaseOrderDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllPurchase_order().subscribe((data:PurchaseOrderClass[])=>{
@@ -36,23 +38,16 @@ purchase_order1:PurchaseOrderClass[]=[];
       this.purchase_order=this.purchase_order1;
     }
   }
-  // onAdd(){
-  //   this._data.addPurchase_order(new PurchaseOrderClass(0,0,0,'pending')).subscribe(
-      
-  //     ()=>{
-  //     },function(err){
-    
-  //     },
-  //     function(){
-        
-  //     }
-  //   );
-  //   }
+  
     onDelete(item){
       this._data.deletePurchase_order(item.Purchase_order_id).subscribe(()=>{
   
         this.purchase_order.splice(this.purchase_order.indexOf(item),1);
       });
+    }
+    onView(id){
+      this._router.navigate(['view_purchase_order',id]);
+  
     }
 
 }

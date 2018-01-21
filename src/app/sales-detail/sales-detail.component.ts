@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SalesDetailDataService } from '../Providers/sales-detail-data.service';
 import { SalesDetail } from '../Model/sales-detail';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-sales-detail',
@@ -10,7 +13,7 @@ import { SalesDetail } from '../Model/sales-detail';
 export class SalesDetailComponent implements OnInit {
   sales_detail:SalesDetail[]=[];
   sales_detail1:SalesDetail[]=[];
-  constructor(public _data:SalesDetailDataService) { }
+  constructor(public _data:SalesDetailDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllSales_details().subscribe((data:SalesDetail[])=>{
@@ -36,11 +39,14 @@ export class SalesDetailComponent implements OnInit {
     }
   }
   onDelete(item){
-    this._data.deleteSales_details(item.Sales_id).subscribe(()=>{
+    this._data.deleteSales_details(item.Sales_id,item.Product_id).subscribe(()=>{
 
       this.sales_detail.splice(this.sales_detail.indexOf(item),1);
     });
   }
+  onView(id){
+    this._router.navigate(['view_sales_detail',id]);
 
+  }
 
 }

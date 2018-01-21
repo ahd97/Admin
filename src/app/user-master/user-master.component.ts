@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserMasterClass } from '../Model/user-master-class';
 import { UserMasterDataService } from '../Providers_exclusive/user-master-data.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-master',
@@ -10,8 +12,7 @@ import { UserMasterDataService } from '../Providers_exclusive/user-master-data.s
 export class UserMasterComponent implements OnInit {
   users:UserMasterClass[]=[];
   users1:UserMasterClass[]=[];
-
-  constructor(public _data:UserMasterDataService) { }
+  constructor(public _data:UserMasterDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllUsers().subscribe((data:UserMasterClass[])=>{
@@ -43,6 +44,8 @@ export class UserMasterComponent implements OnInit {
       this.users.splice(this.users.indexOf(item), 1);
     });
   }
+  onView(id){
+    this._router.navigate(['view_user',id]);
 
-
+  }
 }

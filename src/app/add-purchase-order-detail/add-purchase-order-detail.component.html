@@ -1,0 +1,44 @@
+
+<div class="col-lg-12">
+    <div class="block">
+      <div class="title"><strong>Add Purchase Order Detail</strong></div>
+      <div class="block-body">
+        <form class="form-horizontal">
+            <div class="form-group row">
+          <label class="col-sm-3 form-control-label">Purchase order id</label>
+          <div class="col-sm-9 select">
+            <select [(ngModel)]="purchase_order_id" name="purchase_order_id" id="purchase_order_id" class="form-control mb-3">
+                <option *ngFor="let item of purchase_order" [value]="item.Purchase_order_id" [selected]="item.Purchase_order_id==purchase_order_id">{{item.Purchase_order_id}}</option>
+              </select>
+          </div>
+          <label class="col-sm-3 form-control-label">Product id</label>
+          <div class="col-sm-9 select">
+            <select [(ngModel)]="product_id" name="product_id" id="product_id" class="form-control mb-3">
+                <option *ngFor="let item of product" [value]="item.Product_id" [selected]="item.Product_id==product_id">{{item.Product_name}}</option>
+              </select>
+          </div>
+      </div>
+        <div class="form-group">
+            <label class="form-control-label">Received date</label>
+            <input type="text" name="received_date" id="received_date" [(ngModel)]="received_date" placeholder="Received date" class="form-control">
+          </div>
+          <div class="form-group">
+              <label class="form-control-label">Qty ordered</label>
+              <input type="number" name="qty_ordered" id="qty_ordered" [(ngModel)]="qty_ordered" placeholder="Qty ordered" class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="form-control-label">Qty received</label>
+                <input type="number" name="qty_received" id="qty_received" [(ngModel)]="qty_received" placeholder="Qty received" class="form-control">
+              </div>
+          <div class="line"></div>
+          <div class="form-group row">
+            <div class="col-sm-9 ml-auto">
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+              <button type="submit" class="btn btn-primary" (click)="onAdd()">Save changes</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

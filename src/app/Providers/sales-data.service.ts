@@ -10,8 +10,10 @@ export class SalesDataService {
     console.log('Hello CityDataProvider Provider');
   }
   getAllSales() {
-
     return this.http.get(this.url);
+  }
+  getSalesById(id){
+    return this.http.get(this.url+id);
   }
    addSales(item) {
      let body = JSON.stringify(item);

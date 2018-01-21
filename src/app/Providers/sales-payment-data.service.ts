@@ -6,8 +6,10 @@ export class SalesPaymentDataService {
   url: string = "http://localhost:3000/sales_payment/";
   constructor(public http: HttpClient) { }
   getAllSales_payment() {
-
     return this.http.get(this.url);
+  }
+  getAllSales_paymentById(id) {
+    return this.http.get(this.url+id);
   }
    addSales_payment(item) {
      let body = JSON.stringify(item);

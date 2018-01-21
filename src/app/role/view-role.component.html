@@ -1,0 +1,33 @@
+
+<section class="no-padding-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="block margin-bottom-sm">
+          <div class="title">
+            <strong>Role</strong>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Role id</th>
+                <th>Role name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of role">
+                <td>{{item.Role_id}}</td>
+                <td>{{item.Role_name}}</td>
+              </tr>
+              <tr *ngFor="let item of role">
+                <td>
+                  <button type="button" class="btn btn-success btn-lg" (click)="onUpdate(item.Role_id)">update</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-dark btn-lg" (click)="onBack()">Back</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

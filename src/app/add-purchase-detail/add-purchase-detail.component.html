@@ -1,0 +1,45 @@
+<form>
+  <table>
+      <tr>
+          <td>
+            <label>Purchase id</label>
+          </td>
+          <td>
+            <select [(ngModel)]="purchase_id" name="purchase_id" id="purchase_id">
+              <option *ngFor="let item of purchase" [value]="item.Purchase_id" [selected]="item.Purchase_id==purchase_id">{{item.Purchase_id}}</option>
+            </select>
+            </td>
+        </tr>
+    <tr>
+      <td>
+        <label>Product id</label>
+      </td>
+      <td>
+        <select [(ngModel)]="product_id" name="product_id" id="product_id">
+          <option *ngFor="let item of product" [value]="item.Product_id" [selected]="item.Product_id==product_id">{{item.Product_name}}</option>
+        </select>
+        </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Price per unit</label>
+      </td>
+      <td>
+        <input type="number" name="price_per_unit" id="price_per_unit" [(ngModel)]="price_per_unit">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Qty</label>
+      </td>
+      <td>
+        <input type="number" name="qty" id="qty" [(ngModel)]="qty">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="onAdd()">add</button>
+      </td>
+    </tr>
+  </table>
+</form>

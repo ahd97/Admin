@@ -54,6 +54,79 @@ import { routing } from './app.routing';
 import { SidebarmenuComponent } from './sidebarmenu.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AddCityComponent } from './add-city/add-city.component';
+import { AddSalesOrderComponent } from './add-sales-order/add-sales-order.component';
+import { AddSalesOrderDetailComponent } from './add-sales-order-detail/add-sales-order-detail.component';
+import { AddColorComponent } from './add-color/add-color.component';
+import { AddDesignComponent } from './add-design/add-design.component';
+import { AddImageComponent } from './add-image/add-image.component';
+import { AddProductCategoryComponent } from './add-product-category/add-product-category.component';
+import { AddPurchaseComponent } from './add-purchase/add-purchase.component';
+import { AddPurchaseDetailComponent } from './add-purchase-detail/add-purchase-detail.component';
+import { AddPurchaseOrderComponent } from './add-purchase-order/add-purchase-order.component';
+import { AddPurchaseOrderDetailComponent } from './add-purchase-order-detail/add-purchase-order-detail.component';
+import { AddPurchasePaymentComponent } from './add-purchase-payment/add-purchase-payment.component';
+import { AddPurchaseReturnComponent } from './add-purchase-return/add-purchase-return.component';
+import { AddPurchaseReturnDetailComponent } from './add-purchase-return-detail/add-purchase-return-detail.component';
+import { AddRoleComponent } from './add-role/add-role.component';
+import { AddSupplierComponent } from './add-supplier/add-supplier.component';
+import { AddSalesPaymentComponent } from './add-sales-payment/add-sales-payment.component';
+import { AddSalesReturnComponent } from './add-sales-return/add-sales-return.component';
+import { AddSalesReturnDetailComponent } from './add-sales-return-detail/add-sales-return-detail.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { UpdateproductComponent } from './product/updateproduct.component';
+import { UpdateProductCategoryComponent } from './product-category/update-product-category.component';
+import { UpdateSalesComponent } from './sales/update-sales.component';
+import { UpdateColorComponent } from './color/update-color.component';
+import { UpdateCityComponent } from './city/update-city.component';
+import { UpdateDesignComponent } from './design/update-design.component';
+import { UpdateImageComponent } from './image/update-image.component';
+import { UpdateRoleComponent } from './role/update-role.component';
+import { UpdateSupplierComponent } from './supplier/update-supplier.component';
+import { UpdatePurchaseComponent } from './purchase/update-purchase.component';
+import { UpdatePurchaseDetailComponent } from './purchase-detail/update-purchase-detail.component';
+import { UpdatePurchaseOrderComponent } from './purchase-order/update-purchase-order.component';
+import { UpdatePurchaseOrderDetailComponent } from './purchase-order-detail/update-purchase-order-detail.component';
+import { UpdatePurchasePaymentComponent } from './purchase-payment/update-purchase-payment.component';
+import { UpdatePurchaseReturnComponent } from './purchase-return/update-purchase-return.component';
+import { UpdatePurchaseReturnDetailComponent } from './purchase-return-detail/update-purchase-return-detail.component';
+import { HeaderComponent } from './header.component';
+import { FooterComponent } from './footer.component';
+import { UpdateSalesDetailComponent } from './sales-detail/update-sales-detail.component';
+import { UpdateSalesOrderComponent } from './sales-order/update-sales-order.component';
+import { UpdateSalesOrderDetailComponent } from './sales-order-detail/update-sales-order-detail.component';
+import { UpdateSalesPaymentComponent } from './sales-payment/update-sales-payment.component';
+import { UpdateSalesReturnComponent } from './sales-return/update-sales-return.component';
+import { UpdateSalesReturnDetailComponent } from './sales-return-detail/update-sales-return-detail.component';
+import { UpdateUserComponent } from './user-master/update-user.component';
+import { ViewUserComponent } from './user-master/view-user.component';
+import { ViewSupplierComponent } from './supplier/view-supplier.component';
+import { ViewSalesReturnDetailComponent } from './sales-return-detail/view-sales-return-detail.component';
+import { ViewSalesReturnComponent } from './sales-return/view-sales-return.component';
+import { ViewSalesPaymentComponent } from './sales-payment/view-sales-payment.component';
+import { ViewSalesOrderDetailComponent } from './sales-order-detail/view-sales-order-detail.component';
+import { ViewSalesOrderComponent } from './sales-order/view-sales-order.component';
+import { ViewSalesDetailComponent } from './sales-detail/view-sales-detail.component';
+import { ViewSalesComponent } from './sales/view-sales.component';
+import { ViewRoleComponent } from './role/view-role.component';
+import { ViewPurchaseReturnDetailComponent } from './purchase-return-detail/view-purchase-return-detail.component';
+import { ViewPurchaseReturnComponent } from './purchase-return/view-purchase-return.component';
+import { ViewPurchasePaymentComponent } from './purchase-payment/view-purchase-payment.component';
+import { ViewPurchaseOrderDetailComponent } from './purchase-order-detail/view-purchase-order-detail.component';
+import { ViewPurchaseOrderComponent } from './purchase-order/view-purchase-order.component';
+import { ViewPurchaseDetailComponent } from './purchase-detail/view-purchase-detail.component';
+import { ViewPurchaseComponent } from './purchase/view-purchase.component';
+import { ViewProductCategoryComponent } from './product-category/view-product-category.component';
+import { ViewProductComponent } from './product/view-product.component';
+import { ViewImageComponent } from './image/view-image.component';
+import { ViewColorComponent } from './color/view-color.component';
+import { ViewDesignComponent } from './design/view-design.component';
+import { ViewCityComponent } from './city/view-city.component';
+import { CompanyDataService } from './Providers/company-data.service';
+import { CompanyComponent } from './company/company.component';
+import { UpdateCompanyComponent } from './company/update-company.component';
+import { ViewCompanyComponent } from './company/view-company.component';
+import { AddCompanyComponent } from './add-company/add-company.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +155,78 @@ import { AddCityComponent } from './add-city/add-city.component';
     UserMasterComponent,
     SidebarmenuComponent,
     AddProductComponent,
-    AddCityComponent
+    AddCityComponent,
+    AddSalesOrderComponent,
+    AddSalesOrderDetailComponent,
+    UpdateproductComponent,
+    AddColorComponent,
+    AddDesignComponent,
+    AddImageComponent,
+    AddProductCategoryComponent,
+    AddPurchaseComponent,
+    AddPurchaseDetailComponent,
+    AddPurchaseOrderComponent,
+    AddPurchaseOrderDetailComponent,
+    AddPurchasePaymentComponent,
+    AddPurchaseReturnComponent,
+    AddPurchaseReturnDetailComponent,
+    AddSupplierComponent,
+    AddRoleComponent,
+    AddSalesPaymentComponent,
+    AddSalesReturnComponent,
+    AddSalesReturnDetailComponent,
+    AddUserComponent,
+    UpdateSalesComponent,
+    UpdateProductCategoryComponent,
+    UpdateColorComponent,
+    UpdateCityComponent,
+    UpdateDesignComponent,
+    UpdateImageComponent,
+    UpdateRoleComponent,
+    UpdateSupplierComponent,
+    UpdatePurchaseComponent,
+    UpdatePurchaseDetailComponent,
+    UpdatePurchaseOrderComponent,
+    UpdatePurchaseOrderDetailComponent,
+    UpdatePurchasePaymentComponent,
+    UpdatePurchaseReturnComponent,
+    UpdatePurchaseReturnDetailComponent,
+    HeaderComponent,
+    FooterComponent,
+    UpdateSalesDetailComponent,
+    UpdateSalesOrderComponent,
+    UpdateSalesOrderDetailComponent,
+    UpdateSalesPaymentComponent,
+    UpdateSalesReturnComponent,
+    UpdateSalesReturnDetailComponent,
+    UpdateUserComponent,
+    ViewUserComponent,
+    ViewSupplierComponent,
+    ViewSalesReturnDetailComponent,
+    ViewSalesReturnComponent,
+    ViewSalesPaymentComponent,
+    ViewSalesOrderDetailComponent,
+    ViewSalesOrderComponent,
+    ViewSalesDetailComponent,
+    ViewSalesComponent,
+    ViewRoleComponent,
+    ViewPurchaseReturnDetailComponent,
+    ViewPurchaseReturnComponent,
+    ViewPurchasePaymentComponent,
+    ViewPurchaseOrderDetailComponent,
+    ViewPurchaseOrderComponent,
+    ViewPurchaseDetailComponent,
+    ViewPurchaseComponent,
+    ViewProductCategoryComponent,
+    ViewProductComponent,
+    ViewImageComponent,
+    ViewColorComponent,
+    ViewDesignComponent,
+    ViewCityComponent,
+    CompanyComponent,
+    UpdateCompanyComponent,
+    ViewCompanyComponent,
+    AddCompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -113,7 +257,8 @@ import { AddCityComponent } from './add-city/add-city.component';
     PurchasePaymentDataService,
     PurchaseReturnDataService,
     PurchaseReturnDetailDataService,
-    UserMasterDataService
+    UserMasterDataService,
+    CompanyDataService
   ],
   bootstrap: [AppComponent]
 })

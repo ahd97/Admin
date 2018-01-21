@@ -10,6 +10,9 @@ export class ProductCategoryDataService {
   getAllProduct_cat() {
     return this.http.get(this.url);
   }
+  getAllProduct_CatById(id){
+    return this.http.get(this.url+id);
+  }
    addProduct_cat(item) {
      let body = JSON.stringify(item);
      return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });

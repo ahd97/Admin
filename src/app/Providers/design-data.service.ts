@@ -10,6 +10,9 @@ export class DesignDataService {
   getAllDesign() {
     return this.http.get(this.url);
   }
+  getAllDesignById(id){
+    return this.http.get(this.url+id);
+  }
    addDesign(item) {
      let body = JSON.stringify(item);
      return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });

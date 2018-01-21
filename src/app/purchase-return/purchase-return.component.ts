@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseReturn } from '../Model/purchase-return';
 import { PurchaseReturnDataService } from '../Providers_exclusive/purchase-return-data.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-purchase-return',
@@ -11,7 +14,7 @@ export class PurchaseReturnComponent implements OnInit {
   purchase_return:PurchaseReturn[]=[];
   purchase_return1:PurchaseReturn[]=[];
 
-  constructor(public _data:PurchaseReturnDataService) { }
+  constructor(public _data:PurchaseReturnDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllPurchase_return().subscribe((data:PurchaseReturn[])=>{
@@ -42,6 +45,11 @@ export class PurchaseReturnComponent implements OnInit {
       this.purchase_return.splice(this.purchase_return.indexOf(item),1);
     });
   }
+  onView(id){
+    this._router.navigate(['view_purchase_return',id]);
   }
+}
+
+  
 
 

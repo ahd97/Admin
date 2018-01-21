@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SalesReturnDetailDataService } from '../Providers/sales-return-detail-data.service';
 import { SalesReturnDetail } from '../Model/sales-return-detail';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sales-return-detail',
@@ -10,7 +11,7 @@ import { SalesReturnDetail } from '../Model/sales-return-detail';
 export class SalesReturnDetailComponent implements OnInit {
   sales_return_detail:SalesReturnDetail[]=[];
   sales_return_detail1:SalesReturnDetail[]=[];
-  constructor(public _data:SalesReturnDetailDataService) { }
+  constructor(public _data:SalesReturnDetailDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllSales_return_detail().subscribe((data:SalesReturnDetail[])=>{
@@ -36,10 +37,13 @@ export class SalesReturnDetailComponent implements OnInit {
     }
   }
   onDelete(item){
-    this._data.deleteSales_return_detail(item.Sales_return_id).subscribe(()=>{
+    this._data.deleteSales_return_detail(item.Sales_return_id,item.Product_id).subscribe(()=>{
     
       this.sales_return_detail.splice(this.sales_return_detail.indexOf(item),1);
     });
   }
+  onView(id){
+    this._router.navigate(['view_sales_return_detail',id]);
   
+  }
 }

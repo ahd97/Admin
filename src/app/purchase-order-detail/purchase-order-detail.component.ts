@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseOrderDetail } from '../Model/purchase-order-detail';
 import { PurchaseOrderDetailDataService } from '../Providers_exclusive/purchase-order-detail-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-purchase-order-detail',
@@ -10,7 +11,7 @@ import { PurchaseOrderDetailDataService } from '../Providers_exclusive/purchase-
 export class PurchaseOrderDetailComponent implements OnInit {
   purchase_order_detail:PurchaseOrderDetail[]=[];
   purchase_order_detail1:PurchaseOrderDetail[]=[];
-  constructor(public _data:PurchaseOrderDetailDataService) { }
+  constructor(public _data:PurchaseOrderDetailDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllPurchase_order_details().subscribe((data:PurchaseOrderDetail[])=>{
@@ -36,10 +37,14 @@ export class PurchaseOrderDetailComponent implements OnInit {
     }
   }
   onDelete(item){
-    this._data.deletePurchase_order_details(item.Purchase_order_id).subscribe(()=>{
+    this._data.deletePurchase_order_details(item.Purchase_order_id,item.Product_id).subscribe(()=>{
 
       this.purchase_order_detail.splice(this.purchase_order_detail.indexOf(item),1);
     });
+  }
+  onView(id){
+    this._router.navigate(['view_purchase_order_detail',id]);
+
   }
   }
 

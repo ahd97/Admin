@@ -10,6 +10,9 @@ export class PurchaseDataService {
 
     return this.http.get(this.url);
   }
+  getPurchaseById(id){
+    return this.http.get(this.url+id);
+  }
    addPurchase(item) {
      let body = JSON.stringify(item);
      return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });

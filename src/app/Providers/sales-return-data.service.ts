@@ -11,6 +11,10 @@ export class SalesReturnDataService {
 
     return this.http.get(this.url);
   }
+  getSales_returnById(id) {
+
+    return this.http.get(this.url+id);
+  }
    addSales_return(item) {
      let body = JSON.stringify(item);
      return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });

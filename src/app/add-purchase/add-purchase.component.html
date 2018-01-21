@@ -1,0 +1,45 @@
+<form>
+  <table>
+    <tr>
+      <td>
+        <label>Purachse Date</label>
+      </td>
+      <td>
+        <input type="text" name="purchase_date" id="purchase_date" [(ngModel)]="purchase_date">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Purchase Order id</label>
+      </td>
+      <td>
+          <select [(ngModel)]="purchase_order_id" name="purchase_order_id" id="purchase_order_id">
+            <option *ngFor="let item of purchase_order" [value]="item.Purchase_order_id" [selected]="item.Purchase_order_id==purchase_order_id">{{item.Purchase_order_id}}</option>
+          </select>
+          </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Purchase Payment id</label>
+      </td>
+      <td>
+          <select [(ngModel)]="purchase_payment_id" name="purchase_payment_id" id="purchase_payment_id">
+            <option *ngFor="let item of purchase_payment" [value]="item.Purchase_payment_id" [selected]="item.Purchase_payment_id==purchase_payment_id">{{item.Purchase_payment_id}}</option>
+          </select>
+          </td>
+    </tr>
+    <tr>
+      <td>
+        <label>Amount</label>
+      </td>
+      <td>
+        <input type="number" name="amount" id="amount" [(ngModel)]="amount">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="onAdd()">add</button>
+      </td>
+    </tr>
+  </table>
+</form>

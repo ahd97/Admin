@@ -10,6 +10,10 @@ export class UserMasterDataService {
 
     return this.http.get(this.url);
    }
+   getAllUserById(id){
+    return this.http.get(this.url+id);
+    
+  }
  addUsers(item){
    let body=JSON.stringify(item);
    return this.http.post(this.url,body,{headers:new HttpHeaders().set('Content-Type','application/json')});

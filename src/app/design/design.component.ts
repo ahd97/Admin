@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Design } from '../Model/design';
 import { DesignDataService } from '../Providers/design-data.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-design',
@@ -11,7 +13,7 @@ export class DesignComponent implements OnInit {
 design:Design[]=[];
 design1:Design[]=[];
 design_name:string='';
-  constructor(public _data:DesignDataService) { }
+  constructor(public _data:DesignDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllDesign().subscribe((data: Design[]) => {
@@ -36,23 +38,16 @@ design_name:string='';
       this.design = this.design1;
     }
   }
-  onAdd() {
-    this._data.addDesign(new Design(0, this.design_name)).subscribe(
-
-      () => {
-      }, function (err) {
-
-      },
-      function () {
-
-      }
-    );
-  }
   onDelete(item) {
     this._data.deleteDesign(item.Design_id).subscribe(() => {
 
       this.design.splice(this.design.indexOf(item), 1);
     });
   }
+  onView(id){
+    this._router.navigate(['view_design',id]);
+
+  }
+
 
 }

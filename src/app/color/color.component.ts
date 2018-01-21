@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Color } from '../Model/color';
 import { ColorDataService } from '../Providers/color-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-color',
@@ -11,7 +12,7 @@ export class ColorComponent implements OnInit {
 color:Color[]=[];
 color1:Color[]=[];
 color_name:string='';
-  constructor(public _data:ColorDataService) { }
+  constructor(public _data:ColorDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllColor().subscribe((data: Color[]) => {
@@ -36,23 +37,15 @@ color_name:string='';
       this.color = this.color1;
     }
   }
-  onAdd() {
-    this._data.addColor(new Color(0, this.color_name)).subscribe(
-
-      () => {
-      }, function (err) {
-
-      },
-      function () {
-
-      }
-    );
-  }
   onDelete(item) {
     this._data.deleteColor(item.Color_id).subscribe(() => {
 
       this.color.splice(this.color.indexOf(item), 1);
     });
+  }
+  onView(id){
+    this._router.navigate(['view_color',id]);
+
   }
 
 }

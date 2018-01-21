@@ -1,30 +1,44 @@
-<input type="text" (keyup)="onKeyup(input1.value)" #input1 >
-
-
-<button><a routerLink="/add_product">Add Product</a></button>
-<table>
-    <thead>
-        <th>Product id</th>
-        <th>Product name</th>
-        <th>Description</th>
-        <th>QOH</th>        
-        <th>Price</th>
-        <th>Category_name</th>
-        <th>Color_name</th>   
-        <th>Design_name</th>     
-      </thead>
-  <tr *ngFor="let item of product">
-    <td>{{item.Product_id}}</td>
-    <td>{{item.Product_name}}</td>
-    <td>{{item.Description}}</td>
-    <td>{{item.QOH}}</td>
-    <td>{{item.Price}}</td>
-    <td>{{item.Category_name}}</td>
-    <td>{{item.Color_name}}</td>
-    <td>{{item.Design_name}}</td>
-    <td><button (click)="onDelete(item)" >delete</button></td>
-    <td><button>update</button></td>
-  </tr>
-
-</table>
-
+<input type="text" (keyup)="onKeyup(input1.value)" #input1>
+<button class="btn btn-default btn-lg"><a routerLink="/add_product">Add Product</a></button>
+<section class="no-padding-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="block margin-bottom-sm">
+          <div class="title">
+            <strong>Product</strong>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Product name</th>
+                <th>Description</th>
+                <th>QOH</th>
+                <th>Price</th>
+                <th>Category_name</th>
+                <th>Color_name</th>
+                <th>Design_name</th>
+                <th>Company_name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of product">
+                <td>{{item.Product_name}}</td>
+                <td>{{item.Description}}</td>
+                <td>{{item.QOH}}</td>
+                <td>{{item.Price}}</td>
+                <td>{{item.Category_name}}</td>
+                <td>{{item.Color_name}}</td>
+                <td>{{item.Design_name}}</td>
+                <td>{{item.Company_name}}</td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-lg" (click)="onDelete(item)">delete</button>
+                </td>
+                <td>
+                  <button  type="button" class="btn btn-light btn-lg" (click)="onView(item.Product_id)">View</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

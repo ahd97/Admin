@@ -1,0 +1,45 @@
+
+<input type="text" (keyup)="onKeyup(input1.value)" #input1>
+<button class="btn btn-default btn-lg">
+  <a routerLink="/add_company">Add Company</a>
+</button>
+<section class="no-padding-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="block margin-bottom-sm">
+          <div class="title">
+            <strong>Color</strong>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                  <th>Company id</th>  
+                  <th>Company name</th>     
+                  <th>Address</th>     
+                  <th>E_mail</th>     
+                  <th>Phone No</th>     
+                  <th>City id</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of company">
+                  <td>{{item.Company_id}}</td>
+                  <td>{{item.Company_name}}</td>
+                  <td>{{item.Address}}</td>
+                  <td>{{item.E_mail}}</td>
+                  <td>{{item.Ph_no}}</td>
+                  <td>{{item.City_id}}</td>
+                  </tr>
+                  <tr *ngFor="let item of company">
+                  <td>
+                      <button type="button" class="btn btn-success btn-lg" (click)="onUpdate(item.Company_id)">Update</button>
+                    </td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-lg" (click)="onBack()">Back</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseReturnDetail } from '../Model/purchase-return-detail';
 import { PurchaseReturnDetailDataService } from '../Providers_exclusive/purchase-return-detail-data.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-purchase-return-detail',
@@ -10,7 +12,7 @@ import { PurchaseReturnDetailDataService } from '../Providers_exclusive/purchase
 export class PurchaseReturnDetailComponent implements OnInit {
   purchase_return_detail:PurchaseReturnDetail[]=[];
   purchase_return_detail1:PurchaseReturnDetail[]=[];
-  constructor(public _data:PurchaseReturnDetailDataService) { }
+  constructor(public _data:PurchaseReturnDetailDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllPurchase_return_detail().subscribe((data:PurchaseReturnDetail[])=>{
@@ -36,10 +38,15 @@ export class PurchaseReturnDetailComponent implements OnInit {
     }
   }
   onDelete(item){
-    this._data.deletePurchase_return_detail(item.Purchase_return_id).subscribe(()=>{
+    this._data.deletePurchase_return_detail(item.Purchase_return_id,item.Product_id).subscribe(()=>{
 
       this.purchase_return_detail.splice(this.purchase_return_detail.indexOf(item),1);
     });
+  }
+
+  onView(id){
+    this._router.navigate(['view_purchase_return_detail',id]);
+  
   }
   }
 

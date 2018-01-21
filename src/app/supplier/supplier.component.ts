@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Supplier } from '../Model/supplier';
 import { SupplierDataService } from '../Providers/supplier-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-supplier',
@@ -12,8 +13,8 @@ supplier:Supplier[]=[];
 supplier1:Supplier[]=[];
 name:string='';
 address:string='';
-ph_no:number=0;
-  constructor(public _data:SupplierDataService) { }
+ph_no:number;
+  constructor(public _data:SupplierDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllSupplier().subscribe((data: Supplier[]) => {
@@ -38,23 +39,15 @@ ph_no:number=0;
       this.supplier = this.supplier1;
     }
   }
-  onAdd() {
-    this._data.addSupplier(new Supplier(0, this.name,this.address,this.ph_no)).subscribe(
-
-      () => {
-      }, function (err) {
-
-      },
-      function () {
-
-      }
-    );
-  }
   onDelete(item) {
     this._data.deleteSupplier(item.Supplier_id).subscribe(() => {
 
       this.supplier.splice(this.supplier.indexOf(item), 1);
     });
   }
+  onView(id){
+    this._router.navigate(['view_supplier',id]);
 
+  }
+  
 }

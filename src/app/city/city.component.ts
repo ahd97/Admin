@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CityClass } from '../Model/city-class';
 import { CityDataService } from '../Providers/city-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-city',
@@ -11,7 +12,7 @@ export class CityComponent implements OnInit {
   city:CityClass[]=[];
   city1:CityClass[]=[];
   city_name:string='';
-  constructor(public _data:CityDataService) { }
+  constructor(public _data:CityDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllcity().subscribe((data: CityClass[]) => {
@@ -41,5 +42,8 @@ export class CityComponent implements OnInit {
       this.city.splice(this.city.indexOf(item), 1);
     });
   }
+  onView(id){
+    this._router.navigate(['view_city',id]);
 
+  }
 }

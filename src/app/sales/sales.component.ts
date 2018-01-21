@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SalesDataService } from '../Providers/sales-data.service';
 import { Sales } from '../Model/sales';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sales',
@@ -11,7 +12,7 @@ export class SalesComponent implements OnInit {
 sales_date:string='';
 sales:Sales[]=[];
 sales1:Sales[]=[];
-  constructor(public _data:SalesDataService) { }
+  constructor(public _data:SalesDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllSales().subscribe((data:Sales[])=>{
@@ -36,23 +37,13 @@ sales1:Sales[]=[];
       this.sales=this.sales1;
     }
   }
-  onAdd(){
-    this._data.addSales(new Sales(0,0,this.sales_date,0)).subscribe(
-      
-      ()=>{
-      },function(err){
-    
-      },
-      function(){
-        
-      }
-    );
-    }
     onDelete(item){
       this._data.deleteSales(item.Sales_id).subscribe(()=>{
   
         this.sales.splice(this.sales.indexOf(item),1);
       });
     }
-
+    onView(id){
+      this._router.navigate(['view_sales',id]);
+    }
 }

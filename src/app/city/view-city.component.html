@@ -1,0 +1,34 @@
+
+<section class="no-padding-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="block margin-bottom-sm">
+          <div class="title">
+            <strong>City</strong>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>City id</th>
+                <th>City name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of city">
+                <td>{{item.City_id}}</td>
+                <td>{{item.City_name}}</td>
+                </tr>
+              <tr *ngFor="let item of city"> 
+                <td>
+                  <button type="button" class="btn btn-success btn-lg" (click)="onUpdate(item.City_id)">update</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-dark btn-lg" (click)="onBack()">Back</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    

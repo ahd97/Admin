@@ -1,18 +1,36 @@
-<input type="text" (keyup)="onKeyup(input1.value)" #input1 >
-<table>
-    <thead>
-        <th>Purchase payment id</th>
-        <th>Purchase payment date</th>
-        <th>Supplier name</th>
-        <th>Payment type</th>
-      </thead>
-  <tr *ngFor="let item of purchase_payment">
-    <td>{{item.Purchase_payment_id}}</td>
-    <td>{{item.Purchase_payment_date}}</td>
-    <td>{{item.Supplier_name}}</td>
-    <td>{{item.Payment_type}}</td>
-    <td><button (click)="onDelete(item)" >delete</button></td>
-    <td><button>update</button></td>
-  </tr>
-
-</table>
+<input type="text" (keyup)="onKeyup(input1.value)" #input1>
+<button class="btn btn-default btn-lg">
+  <a routerLink="/add_purchase_payment">Add Purchase Payment</a>
+</button>
+<section class="no-padding-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="block margin-bottom-sm">
+          <div class="title">
+            <strong>Purchase Payment</strong>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Purchase payment date</th>
+                <th>Supplier name</th>
+                <th>Payment type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of purchase_payment">
+                <td>{{item.Purchase_payment_date}}</td>
+                <td>{{item.Name}}</td>
+                <td>{{item.Payment_type}}</td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-lg" (click)="onDelete(item)">delete</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-light btn-lg" (click)="onView(item.Purchase_payment_id)">View</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

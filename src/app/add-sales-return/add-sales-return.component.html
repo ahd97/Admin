@@ -1,0 +1,31 @@
+
+
+<div class="col-lg-12">
+    <div class="block">
+      <div class="title"><strong>Add Sales Return</strong></div>
+      <div class="block-body">
+        <form class="form-horizontal">
+            <div class="form-group row">
+          <label class="col-sm-3 form-control-label">Sales id</label>
+          <div class="col-sm-9 select">
+            <select [(ngModel)]="sales_id" name="sales_id" id="sales_id" class="form-control mb-3">
+                <option *ngFor="let item of sales" [value]="item.Sales_id" [selected]="item.Sales_id==sales_id">{{item.Sales_id}}</option>
+              </select>
+          </div>
+      </div>
+        <div class="form-group">
+            <label class="form-control-label">Sales return date</label>
+            <input type="text" name="sales_return_date" id="sales_return_date" [(ngModel)]="sales_return_date" placeholder="Sales return date" class="form-control">
+          </div>
+          <div class="line"></div>
+          <div class="form-group row">
+            <div class="col-sm-9 ml-auto">
+              <button type="submit" class="btn btn-secondary">Cancel</button>
+              <button type="submit" class="btn btn-primary" (click)="onAdd()">Save changes</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

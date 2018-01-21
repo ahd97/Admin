@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Image } from '../Model/image';
 import { ImageDataService } from '../Providers/image-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-image',
@@ -11,7 +12,7 @@ export class ImageComponent implements OnInit {
 image:Image[]=[];
 image1:Image[]=[];
 path:string='';
-  constructor(public _data:ImageDataService) { }
+  constructor(public _data:ImageDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllImage().subscribe((data: Image[]) => {
@@ -36,23 +37,16 @@ path:string='';
       this.image = this.image1;
     }
   }
-  // onAdd() {
-  //   this._data.addImage(new Image(0, this.path,0)).subscribe(
-
-  //     () => {
-  //     }, function (err) {
-
-  //     },
-  //     function () {
-
-  //     }
-  //   );
-  // }
   onDelete(item) {
     this._data.deleteImage(item.Image_id).subscribe(() => {
 
       this.image.splice(this.image.indexOf(item), 1);
     });
   }
+  onView(id){
+    this._router.navigate(['view_image',id]);
+
+  }
+
 
 }

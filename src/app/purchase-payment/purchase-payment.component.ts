@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchasePayment } from '../Model/purchase-payment';
 import { PurchasePaymentDataService } from '../Providers_exclusive/purchase-payment-data.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-purchase-payment',
   templateUrl: './purchase-payment.component.html',
@@ -9,7 +11,7 @@ import { PurchasePaymentDataService } from '../Providers_exclusive/purchase-paym
 export class PurchasePaymentComponent implements OnInit {
   purchase_payment:PurchasePayment[]=[];
   purchase_payment1:PurchasePayment[]=[];
-  constructor(public _data:PurchasePaymentDataService) { }
+  constructor(public _data:PurchasePaymentDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllPurchase_payment().subscribe((data:PurchasePayment[])=>{
@@ -40,6 +42,7 @@ export class PurchasePaymentComponent implements OnInit {
       this.purchase_payment.splice(this.purchase_payment.indexOf(item),1);
     });
   }
-  }
-
-
+  onView(id){
+    this._router.navigate(['view_purchase_payment',id]);
+  }  
+}

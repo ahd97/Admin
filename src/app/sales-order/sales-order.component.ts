@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SalesOrderDataService } from '../Providers/sales-order-data.service';
 import { SalesOrder } from '../Model/sales-order';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +16,7 @@ customer_name:string='';
 order_address:string='';
 order_date:string='';
 
-  constructor(public _data:SalesOrderDataService) { }
+  constructor(public _data:SalesOrderDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllSales_order().subscribe((data:SalesOrder[])=>{
@@ -36,29 +36,20 @@ order_date:string='';
   onKeyup(item){
     if(item!='')
     {
-   this.sales_order= this.sales_order.filter((x)=>x.Customer_name.startsWith(item));
+   this.sales_order= this.sales_order1.filter((x)=>x.Customer_name.indexOf(item)!==-1);
     }
     else{
       this.sales_order=this.sales_order1;
     }
   }
-  // onAdd(){
-  //   this._data.addSales_order(new SalesOrder(0,0,this.customer_name,this.order_date,this.order_address,0,'Pending')).subscribe(
-      
-  //     ()=>{
-  //     },function(err){
-    
-  //     },
-  //     function(){
-        
-  //     }
-  //   );
-  //   }
-    onDeleteSales_order(item){
+    onDelete(item){
       this._data.deleteSales_order(item.Sales_order_id).subscribe(()=>{
   
         this.sales_order.splice(this.sales_order.indexOf(item),1);
       });
     }
-
+    onView(id){
+      this._router.navigate(['view_sales_order',id]);
+  
+    }
 }

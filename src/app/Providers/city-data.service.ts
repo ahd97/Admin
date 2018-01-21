@@ -9,6 +9,10 @@ export class CityDataService {
   getAllcity() {
     return this.http.get(this.url);
   }
+  getAllCityById(id){
+    return this.http.get(this.url+id);
+    
+  }
    addcity(item) {
      let body = JSON.stringify(item);
      return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });

@@ -10,6 +10,9 @@ export class ColorDataService {
   getAllColor() {
     return this.http.get(this.url);
   }
+  getAllColorById(id){
+    return this.http.get(this.url+id);
+  }
    addColor(item) {
      let body = JSON.stringify(item);
      return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });

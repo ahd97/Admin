@@ -1,17 +1,32 @@
-<input type="text" (keyup)="onKeyup(input1.value)" #input1 >
-
-
-<button (click)="onAdd()">add</button>
-<table>
-    <thead>
-        <th>Role id</th>
-        <th>Role name</th>     
-      </thead>
-  <tr *ngFor="let item of role">
-    <td>{{item.Role_id}}</td>
-    <td>{{item.Role_name}}</td>
-    <td><button (click)="onDelete(item)" >delete</button></td>
-    <td><button>update</button></td>
-  </tr>
-
-</table>
+<input type="text" (keyup)="onKeyup(input1.value)" #input1>
+<button class="btn btn-default btn-lg">
+  <a routerLink="/add_role">Add Role </a>
+</button>
+<section class="no-padding-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="block margin-bottom-sm">
+          <div class="title">
+            <strong>Role</strong>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Role name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of role">
+                <td>{{item.Role_name}}</td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-lg" (click)="onDelete(item)">delete</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-light btn-lg" (click)="onView(item.Role_id)">View</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

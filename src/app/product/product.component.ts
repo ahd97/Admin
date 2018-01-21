@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../Model/product';
 import { ProductDataService } from '../Providers/product-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +13,7 @@ export class ProductComponent implements OnInit {
   product1: Product[] = [];
 
 
-  constructor(public _data: ProductDataService) { }
+  constructor(public _data: ProductDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllProduct().subscribe((data: Product[]) => {
@@ -41,6 +42,9 @@ export class ProductComponent implements OnInit {
 
       this.product.splice(this.product.indexOf(item), 1);
     });
+  }
+  onView(id){
+    this._router.navigate(['view_product',id]);
   }
 
 }

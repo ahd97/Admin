@@ -9,6 +9,9 @@ export class PurchasePaymentDataService {
   getAllPurchase_payment(){
     return this.http.get(this.url);
   }
+  getPurchase_paymentById(id){
+    return this.http.get(this.url+id);
+  }
   addPurchase_payment(item) {
     let body = JSON.stringify(item);
     return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });

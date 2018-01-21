@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCategory } from '../Model/product-category';
 import { ProductCategoryDataService } from '../Providers/product-category-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-category',
@@ -11,7 +12,7 @@ export class ProductCategoryComponent implements OnInit {
 product_cat:ProductCategory[]=[];
 product_cat1:ProductCategory[]=[];
 category_name:string='';
-  constructor(public _data: ProductCategoryDataService) { }
+  constructor(public _data: ProductCategoryDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllProduct_cat().subscribe((data: ProductCategory[]) => {
@@ -52,6 +53,10 @@ category_name:string='';
 
       this.product_cat.splice(this.product_cat.indexOf(item), 1);
     });
+  }
+  onView(id){
+    this._router.navigate(['view_product_category',id]);
+
   }
 
 }

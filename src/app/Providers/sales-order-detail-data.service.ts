@@ -9,16 +9,19 @@ export class SalesOrderDetailDataService {
 
     return this.http.get(this.url);
   }
-   addSales_order_detail(item) {
-     let body = JSON.stringify(item);
-     return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });
-   }
-   deleteSales_order_detail(id) {
-     return this.http.delete(this.url + id, { headers: new HttpHeaders().set('Content-Type', 'application/json') });
-   }
-   updateSales_order_detail(id, item) {
-     let body = JSON.stringify(item);
-     return this.http.put(this.url + id, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });
+  getSalesOrderDetailById(id){
+    return this.http.get(this.url+id);
   }
+  addSales_Order_details(item) {
+    let body = JSON.stringify(item);
+    return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });
+  }
+  deleteSales_Order_details(id,id1) {
+    return this.http.delete(this.url + id + "/" + id1, { headers: new HttpHeaders().set('Content-Type', 'application/json') });
+  }
+  updateSales_Order_details(id,id1, item) {
+    let body = JSON.stringify(item);
+    return this.http.put(this.url + id + "/" + id1, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });
+ }
 
 }

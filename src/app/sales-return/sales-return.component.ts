@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SalesReturnDataService } from '../Providers/sales-return-data.service';
 import { SalesReturnClass } from '../Model/sales-return-class';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sales-return',
   templateUrl: './sales-return.component.html',
@@ -10,7 +10,7 @@ import { SalesReturnClass } from '../Model/sales-return-class';
 export class SalesReturnComponent implements OnInit {
   sales_return:SalesReturnClass[]=[];
   sales_return1:SalesReturnClass[]=[];
-  constructor(public _data:SalesReturnDataService) { }
+  constructor(public _data:SalesReturnDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllSales_return().subscribe((data:SalesReturnClass[])=>{
@@ -42,5 +42,8 @@ export class SalesReturnComponent implements OnInit {
     });
   }
   
+  onView(id){
+    this._router.navigate(['view_sales_return',id]);
+  }
 }
 

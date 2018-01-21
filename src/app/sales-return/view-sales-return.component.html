@@ -1,0 +1,35 @@
+
+<section class="no-padding-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="block margin-bottom-sm">
+          <div class="title">
+            <strong>Sales Return</strong>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Sales return id</th>
+                <th>Sales id</th>
+                <th>Sales return date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of sales_return">
+                <td>{{item.Sales_return_id}}</td>
+                <td>{{item.Sales_id}}</td>
+                <td>{{item.Sales_return_date}}</td>
+              </tr>
+              <tr *ngFor="let item of sales_return">
+                <td>
+                  <button type="button" class="btn btn-success btn-lg" (click)="onUpdate(item.Sales_return_id)">update</button>
+                </td>
+                <td>
+                  <button  type="button" class="btn btn-dark btn-lg"  (click)="onBack()">Back</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

@@ -8,6 +8,9 @@ export class RoleDataService {
   getAllRole() {
     return this.http.get(this.url);
   }
+  getRoleById(id){
+    return this.http.get(this.url+id);
+  }
    addRole(item) {
      let body = JSON.stringify(item);
      return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });

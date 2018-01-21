@@ -13,6 +13,9 @@ export class SalesOrderDataService {
 
     return this.http.get(this.url);
   }
+  getAllSales_OrderById(id){
+    return this.http.get(this.url+id);
+  }
    addSales_order(item) {
      let body = JSON.stringify(item);
      return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });

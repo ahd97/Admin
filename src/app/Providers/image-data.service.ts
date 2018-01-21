@@ -9,6 +9,9 @@ export class ImageDataService {
   getAllImage() {
     return this.http.get(this.url);
   }
+  getAllImageById(id){
+    return this.http.get(this.url+id);
+  }
    addImage(item) {
      let body = JSON.stringify(item);
      return this.http.post(this.url, body, { headers: new HttpHeaders().set('Content-Type', 'application/json') });

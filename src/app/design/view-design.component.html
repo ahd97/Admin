@@ -1,0 +1,36 @@
+<input type="text" (keyup)="onKeyup(input1.value)" #input1>
+<button>
+  <a routerLink="/add_design">Add Design</a>
+</button>
+<section class="no-padding-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="block margin-bottom-sm">
+          <div class="title">
+            <strong>Design</strong>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Design id</th>
+                <th>Design name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of design">
+                <td>{{item.Design_id}}</td>
+                <td>{{item.Design_name}}</td>
+                </tr>
+                <tr *ngFor="let item of design">
+                <td>
+                  <button type="button" class="btn btn-success btn-lg" (click)="onUpdate(item.Design_id)">update</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-dark btn-lg" (click)="onBack()">Back</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

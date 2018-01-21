@@ -1,0 +1,39 @@
+
+<section class="no-padding-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="block margin-bottom-sm">
+          <div class="title">
+            <strong>Purchase Order Detail</strong>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Purchase order id</th>
+                <th>Product id</th>
+                <th>Received date</th>
+                <th>Qty ordered</th>
+                <th>Qty received</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of purchase_order_detail">
+                <td>{{item.Purchase_order_id}}</td>
+                <td>{{item.Product_id}}</td>
+                <td>{{item.Received_date}}</td>
+                <td>{{item.Qty_ordered}}</td>
+                <td>{{item.Qty_received}}</td>
+                </tr>
+                <tr *ngFor="let item of purchase_order_detail">
+                <td>
+                  <button type="button" class="btn btn-success btn-lg" (click)="onUpdate(item.Purchase_order_id)">update</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-dark btn-lg" (click)="onBack(item)">Back</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

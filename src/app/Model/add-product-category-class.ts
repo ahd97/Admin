@@ -1,0 +1,5 @@
+export class AddProductCategoryClass {
+    public constructor(public Product_cat_id:number,
+        public Category_name:string,
+       ){}
+}

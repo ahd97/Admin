@@ -1,2 +1,11 @@
-<app-sidebarmenu></app-sidebarmenu>
-<router-outlet></router-outlet>
+<app-header></app-header>
+<div class="d-flex align-items-stretch">
+
+  <app-sidebarmenu></app-sidebarmenu>
+  <div class="page-content">
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+  </div>
+  
+</div>
+

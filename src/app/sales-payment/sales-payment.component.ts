@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SalesPaymentDataService } from '../Providers/sales-payment-data.service';
 import { SalesPayment } from '../Model/sales-payment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sales-payment',
@@ -10,7 +11,7 @@ import { SalesPayment } from '../Model/sales-payment';
 export class SalesPaymentComponent implements OnInit {
   sales_payment:SalesPayment[]=[];
   sales_payment1:SalesPayment[]=[];
-  constructor(public _data:SalesPaymentDataService) { }
+  constructor(public _data:SalesPaymentDataService,public _router:Router) { }
 
   ngOnInit() {
     this._data.getAllSales_payment().subscribe((data:SalesPayment[])=>{
@@ -40,5 +41,8 @@ export class SalesPaymentComponent implements OnInit {
   
         this.sales_payment.splice(this.sales_payment.indexOf(item),1);
       });
+    }
+    onView(id){
+      this._router.navigate(['view_sales_payment',id]);
     }
 }
