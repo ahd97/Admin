@@ -3,6 +3,8 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { AddSalesOrderDetailClass } from '../Model/add-sales-order-detail-class';
 import { SalesOrderDetailDataService } from '../Providers/sales-order-detail-data.service';
+import { Product } from '../Model/product';
+import { ProductDataService } from '../Providers/product-data.service';
 
 @Component({
   selector: 'app-update-sales-order-detail',
@@ -18,9 +20,11 @@ export class UpdateSalesOrderDetailComponent implements OnInit {
         public product_id:number;
         public qty_dispatched:number;
         public qty_ordered:number;
-  constructor(public _data:SalesOrderDetailDataService, public _router:Router,public _activatedroute:ActivatedRoute) { }
+        product: Product[] = [];
+  constructor(public _data:SalesOrderDetailDataService, public _router:Router,public _activatedroute:ActivatedRoute,public _product: ProductDataService) { }
 
   ngOnInit() {
+    this.getAllProduct();
     this._subcription = this._activatedroute.params.subscribe(
       (params: any) => {
         this.id = params['s_id'];
@@ -35,7 +39,7 @@ export class UpdateSalesOrderDetailComponent implements OnInit {
     );
   }
   onUpdate(){
-    this.sales_order_detail=new AddSalesOrderDetailClass(null,null,this.qty_dispatched,this.qty_ordered);
+    this.sales_order_detail=new AddSalesOrderDetailClass(null,this.product_id,this.qty_dispatched,this.qty_ordered);
     //console.log(this.x);
     this._data.updateSales_Order_details(this.id,this.id1=this.product_id,this.sales_order_detail).subscribe(
       (data:any)=>{
@@ -43,5 +47,13 @@ export class UpdateSalesOrderDetailComponent implements OnInit {
       }
     );
        
+  }
+  getAllProduct(){
+    this._product.getAllProduct().subscribe(
+      (data:Product[])=>{
+        this.product=data;
+      }
+    );
+
   }
 }

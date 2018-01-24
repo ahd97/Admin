@@ -126,6 +126,7 @@ import { CompanyComponent } from './company/company.component';
 import { UpdateCompanyComponent } from './company/update-company.component';
 import { ViewCompanyComponent } from './company/view-company.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
+import { LoginPageComponent } from './login-page.component';
 
 @NgModule({
   declarations: [
@@ -226,7 +227,8 @@ import { AddCompanyComponent } from './add-company/add-company.component';
     CompanyComponent,
     UpdateCompanyComponent,
     ViewCompanyComponent,
-    AddCompanyComponent
+    AddCompanyComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

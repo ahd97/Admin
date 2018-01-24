@@ -93,6 +93,7 @@ import { CompanyComponent } from './company/company.component';
 import { UpdateCompanyComponent } from './company/update-company.component';
 import { ViewCompanyComponent } from './company/view-company.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
+import { LoginPageComponent } from './login-page.component';
 
 const arr:Routes=[
     {path:'',redirectTo:'/user',pathMatch:'full'},
@@ -188,7 +189,8 @@ const arr:Routes=[
     {path:'view_design/:d_id',component:ViewDesignComponent},
     {path:'company',component:CompanyComponent},
     {path:'update_company/:c_id',component:UpdateCompanyComponent},
-    {path:'view_company/:c_id',component:ViewCompanyComponent}
+    {path:'view_company/:c_id',component:ViewCompanyComponent},
+    {path:'login_page',component:LoginPageComponent}
 ];
 
 export const routing=RouterModule.forRoot(arr);

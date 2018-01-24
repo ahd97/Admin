@@ -3,6 +3,8 @@ import { AddSalesReturnDetail } from '../Model/add-sales-return-detail';
 import { SalesReturnDetailDataService } from '../Providers/sales-return-detail-data.service';
 import { Subscription } from 'rxjs/Rx';
 import { ActivatedRoute,Router } from '@angular/router';
+import { Product } from '../Model/product';
+import { ProductDataService } from '../Providers/product-data.service';
 
 @Component({
   selector: 'app-update-sales-return-detail',
@@ -16,10 +18,12 @@ export class UpdateSalesReturnDetailComponent implements OnInit {
   public sales_return_id:number;
   public product_id:number;
  public qty:number;
+ product: Product[] = [];
   sales_return_detail:AddSalesReturnDetail;
-  constructor(public _activedroute:ActivatedRoute,public _router:Router,public _data:SalesReturnDetailDataService) { }
+  constructor(public _activedroute:ActivatedRoute,public _router:Router,public _data:SalesReturnDetailDataService,public _product: ProductDataService) { }
 
   ngOnInit() {
+    this.getAllProduct();
     this._subscription = this._activedroute.params.subscribe(
       (params: any) => {
         this.id = params['s_id'];
@@ -37,12 +41,20 @@ export class UpdateSalesReturnDetailComponent implements OnInit {
     );
   }
   onUpdate(){
-    this.sales_return_detail=new AddSalesReturnDetail(null,null,this.qty);
+    this.sales_return_detail=new AddSalesReturnDetail(null,this.product_id,this.qty);
     //console.log(this.x);
     this._data.updateSales_return_detail(this.id,this.id1=this.product_id,this.sales_return_detail).subscribe(
       (data:any)=>{
         this._router.navigate(['sales_return_detail']);
       }
     );
+  }
+  getAllProduct(){
+    this._product.getAllProduct().subscribe(
+      (data:Product[])=>{
+        this.product=data;
+      }
+    );
+
   }
 }

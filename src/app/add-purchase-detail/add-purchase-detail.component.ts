@@ -5,7 +5,6 @@ import { Product } from '../Model/product';
 import { ProductDataService } from '../Providers/product-data.service';
 import { AddPurchaseClass } from '../Model/add-purchase-class';
 import { PurchaseDataService } from '../Providers/purchase-data.service';
-
 import { Router } from '@angular/router';
 
 @Component({

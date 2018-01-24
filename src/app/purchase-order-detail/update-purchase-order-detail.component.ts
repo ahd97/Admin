@@ -3,6 +3,8 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { AddPurchaseOrderDetailClass } from '../Model/add-purchase-order-detail-class';
 import { PurchaseOrderDetailDataService } from '../Providers_exclusive/purchase-order-detail-data.service';
+import { Product } from '../Model/product';
+import { ProductDataService } from '../Providers/product-data.service';
 
 @Component({
   selector: 'app-update-purchase-order-detail',
@@ -18,10 +20,12 @@ export class UpdatePurchaseOrderDetailComponent implements OnInit {
   public _subcription:Subscription;
   id:number;
   id1:number;
+  product: Product[] = [];
   purchase_order_detail:AddPurchaseOrderDetailClass;
-  constructor(public _data:PurchaseOrderDetailDataService, public _router:Router,public _activatedroute:ActivatedRoute) { }
+  constructor(public _data:PurchaseOrderDetailDataService, public _router:Router,public _activatedroute:ActivatedRoute,public _product: ProductDataService) { }
 
   ngOnInit() {
+    this.getAllProduct();
     this._subcription = this._activatedroute.params.subscribe(
       (params: any) => {
         this.id = params['p_id'];
@@ -39,7 +43,7 @@ export class UpdatePurchaseOrderDetailComponent implements OnInit {
     );
   }
   onUpdate(){
-    this.purchase_order_detail=new AddPurchaseOrderDetailClass(null,null,this.received_date,this.qty_ordered,this.qty_received);
+    this.purchase_order_detail=new AddPurchaseOrderDetailClass(null, this.product_id ,this.received_date,this.qty_ordered,this.qty_received);
     //console.log(this.x);
     this._data.updatePurchase_order_details(this.id,this.id1=this.product_id,this.purchase_order_detail).subscribe(
       (data:any)=>{
@@ -48,5 +52,12 @@ export class UpdatePurchaseOrderDetailComponent implements OnInit {
     );
        
   }
+  getAllProduct(){
+    this._product.getAllProduct().subscribe(
+      (data:Product[])=>{
+        this.product=data;
+      }
+    );
 
+  }
 }
